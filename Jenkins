@@ -14,7 +14,7 @@ stages {
        sh '''#!/bin/bash
        cd /var/lib/jenkins/workspace/AMI_Automation_OelAMI
        echo "Inside OEL block"
-       packer build -debug -machine-readable np.json 2>&1
+       packer build -debug -machine-readable np.json 2>&1'''
 
 }
 }
