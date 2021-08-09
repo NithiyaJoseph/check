@@ -1,0 +1,23 @@
+pipeline {
+     agent any
+  parameters {
+       string(name: 'ami_publishing_account', defaultValue: '', description: 'Encryption key')
+       string(name: 'oel_linux_source_ami_id', defaultValue: '', description: 'Encryption key')
+       string(name: 'oel_golden_ami_name', defaultValue: 'oel_golden_ami_May_2021', description: 'Encryption key')
+       string(name: 'packer_subnet', defaultValue: '', description: 'Encryption key')
+       password(name: 'access_key_password', description: 'Encryption key')
+       password(name: 'secret_key_password', description: 'Encryption key')
+ }
+stages {
+       stage('Creating OEL AMI') {
+       steps {
+       sh '''#!/bin/bash
+       cd /var/lib/jenkins/workspace/AMI_Automation_OelAMI
+       echo "Inside OEL block"
+       packer build -debug -machine-readable np.json 2>&1
+
+}
+}
+}
+}
+
